@@ -1,0 +1,102 @@
+﻿{% load flatpages tree_menu_tags %}
+<!DOCTYPE html>
+<html>
+{% block html %}
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+		{% block meta-tags %}
+			<meta name="description" content="{% block description %}{% endblock %}">
+			<meta name="keywords" content="{% block keywords %}{% endblock %}">
+			<title>{% block title %}{% endblock %}</title>
+		{% endblock %}
+
+		<link href="http://fonts.googleapis.com/css?family=Russo+One&amp;subset=cyrillic,latin-ext" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+
+		{% block css %}
+			<!-- <link rel="stylesheet" type="text/css" href="/static/css/styles.css"> -->
+			<link rel="stylesheet" type="text/less" href="/static/css/styles.less">
+		{% endblock %}
+
+		{% block head-js %}
+			<script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+			<script type="text/javascript" src="/static/js/modernizr.js"></script>
+			<script type="text/javascript" src="/static/js/less.min.js"></script>
+		{% endblock %}
+	</head>
+
+	<body>
+		{% block body %}
+			<div class="header">
+				<div class="headerWrapper">
+					<div class="logo floatingElem">
+						<a class="logoIco" href="/">
+							<img src="/static/img/logo.png" alt="S-Shop" />
+						</a>
+					</div>
+					<div class="contacts floatingElem">
+						<div class="contactInfo">+4 111 555-666-777</div>
+						<button type="button" class="contactUs">Напишите нам</button>
+					</div>
+					<div class="clear"></div>
+					<div class="mainMenu">{% show_menu "main" "horizontal" %}</div>
+					{% block header %}{% endblock %}
+				</div>
+			</div>
+
+			{% block page-content %}
+				<div class="wrapper">
+					<div class="leftSide floatingElem">
+						{% block left-side %}
+							<ul class="menu left-menu">
+                                {% get_flatpages as flatpages %}
+			                    {% for page in flatpages %}
+                                    {% if page.url != "/" %}
+				                        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                                    {% endif %}
+			                    {% endfor %}
+							</ul>
+						{% endblock %}
+					</div>
+
+					<div class="mainContent floatingElem">
+						<h1>{% block page-title %}{% endblock %}</h1>
+						{% block main-content %}{% endblock %}
+					</div>
+
+					<div class="rightSide floatingElem">
+						{% block right-side %}{% endblock %}
+					</div>
+					<div class="clear"></div>
+				</div>
+			{% endblock %}
+
+			<div class="footer">
+				<div class="footerWrapper">
+					{% block footer %}
+						<div class="footerLeft floatingElem">
+							<div class="logo">
+								<a href="/">
+									<img src="/static/img/logo_small.png" alt="S-Shop" />
+								</a>
+							</div>
+							{% block footer-left %}{% endblock %}
+						</div>
+						<div class="footerMiddle floatingElem">
+							{% block footer-middle %}{% endblock %}
+						</div>
+						<div class="footerRight floatingElem">
+							{% block footer-right %}{% endblock %}
+						</div>
+						<div class="clear"></div>
+					{% endblock %}
+				</div>
+			</div>
+		{% endblock %}
+
+		{% block body-js %}
+		{% endblock %}
+	</body>
+{% endblock %}
+</html>

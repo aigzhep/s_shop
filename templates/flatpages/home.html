@@ -1,0 +1,25 @@
+{% extends "flatpages/default.html" %}
+{% load flatpages %}
+
+{% block page-content %}
+	<div class="wrapper homePage">
+		<div class="leftSide floatingElem">
+            <ul class="menu left-menu">
+                {% get_flatpages as flatpages %}
+			    {% for page in flatpages %}
+                    {% if page.url != "/" %}
+				        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                    {% endif %}
+			    {% endfor %}
+            </ul>
+		</div>
+		<div class="mainContent floatingElem">
+			Собственно, задача №1 – увеличение скорости поиска слов в текстовом массиве.
+			Начнем с реализации алгоритма Trie. Для этого нам необходимо поместить весь словарь существительных (43 303 слова) в структуру связанного дерева. Visual Basic не поддерживает переменных-ссылок, подобно C++ или C# (не говоря уже о Pascal), но в этом качестве вполне подойдут индексы массива. 
+		</div>
+		<div class="rightSide floatingElem">
+			<a href="/">Home</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+{% endblock %}

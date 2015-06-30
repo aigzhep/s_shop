@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load flatpages %}
+
+{% block description %}
+	{{ flatpage.title }}
+{% endblock %}
+
+{% block keywords %}
+	{{ flatpage.title }}
+{% endblock %}
+
+{% block title %}
+	{{ flatpage.title }}
+{% endblock %}
+
+{% block page-title %}
+	{{ flatpage.title }}
+{% endblock %}
+
+{% block main-content %}
+	{{ flatpage.content }}
+{% endblock %}
