@@ -3,7 +3,7 @@
 	src: url("../fonts/BloggerSans.woff");
 }
 
-@import url("common.txt");
+@import (less) url("common.less");
 
 * {
 	font: 16px/20px "Blogger Sans";
@@ -18,15 +18,15 @@ body {
 }
 
 a {
-	color: #07F;
-}
-
-a:visited {
-	color: #2C985B;
-}
-
-a:hover {
 	color: #B90000;
+
+	&:visited {
+		/*color: #07F;*/
+	}
+
+	&:hover {
+		color: #2C985B;
+	}
 }
 
 h1,
@@ -72,28 +72,50 @@ h5 {
 	margin: 0 auto;
 }
 
+button.var1 {
+	.gradientTB(~"#E32C4D 0%, #991B2C 49%, #700 50%, #960000 95%");
+    border: 2px solid white;
+    .borderRadius(45px);
+	.box-shadow(0 0 0 1px #B8223A);
+    color: white;
+
+	&:hover {
+		.gradientTB(~"#D1D1D1 0%, #414141 49%, #000 50%, #2A2A2A 95%");
+		.box-shadow(0 0 0 1px #666);
+	}
+}
+
+button.var2 {
+	.gradientTB(~"#656565 0%, #000 100%");
+    border: 1px solid #000;
+    .borderRadius(45px);
+	.box-shadow(0 4px 4px 0 #ADADAD);
+    color: white;
+
+	&:hover {
+		margin: -1px;
+    	border: 2px solid #7CD8FF;
+    	text-shadow: 0 0 5px #00B3FF;
+    	color: #7CD6FC;
+	}
+}
+
+button {
+	display: block;
+	padding: 10px 40px;
+	outline: 0;
+	text-transform: uppercase;
+	color: white;
+	cursor: pointer;
+}
+
 .header {
 	padding: 20px;
 	border-bottom: 1px solid #B90000;
 
-    button {
-	    padding: 10px 40px;
-	    background: #FFF;
-	    border: 2px solid #B90000;
-	    -moz-border-radius: 10px;
-	    -ms-border-radius: 10px;
-	    -webkit-border-radius: 10px;
-	    border-radius: 10px;
-	    outline: 0;
-	    text-transform: uppercase;
-	    color: #B90000;
-	    cursor: pointer;
-
-        &:hover {
-	        border-color: #2C985B;
-	        color: #2C985B;
-        }
-    }
+	button {
+		display: inline-block;
+	}
 }
 
 .logo {
@@ -152,15 +174,31 @@ h5 {
 .leftSide {
 	width: 17%;
 	padding: 0 2%;
-
-	ul.menu {
-		list-style-image: url("../img/list-style-normal.png");
-	}
 }
 
 .rightSide {
 	width: 13%;
 	padding: 0 2%;
+}
+
+ul.side-menu {
+	padding-left: 0;
+	margin: 0;
+	list-style: none;
+
+	li {
+		line-height: 26px;
+
+		a {
+			background: url("../img/list-style.png") no-repeat 0 -3px transparent;
+			padding-left: 22px;
+
+			&:hover {
+				background-position: 0 -19px;
+				text-decoration: none;
+			}
+		}
+	}
 }
 
 .mainContent {

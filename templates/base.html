@@ -12,6 +12,7 @@
 		{% endblock %}
 
 		<link href="http://fonts.googleapis.com/css?family=Russo+One&amp;subset=cyrillic,latin-ext" rel="stylesheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Bad+Script&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
 
 		{% block css %}
@@ -49,7 +50,7 @@
 				<div class="wrapper">
 					<div class="leftSide floatingElem">
 						{% block left-side %}
-							<ul class="menu left-menu">
+							<ul class="side-menu left-menu">
                                 {% get_flatpages as flatpages %}
 			                    {% for page in flatpages %}
                                     {% if page.url != "/" %}

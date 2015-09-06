@@ -1,0 +1,22 @@
+//Common mixins
+
+.borderRadius(@value) {
+	-moz-border-radius: @value;
+	-ms-border-radius: @value;
+	-webkit-border-radius: @value;
+	border-radius: @value;
+}
+
+.box-shadow(@value) {
+	-moz-box-shadow: @value;
+	-ms-box-shadow: @value;
+	-webkit-box-shadow: @value;
+	-box-shadow: @value;
+}
+
+.gradientTB(@value) {
+	background: linear-gradient(to bottom, @value);
+	background: -moz-linear-gradient(top, @value);
+	background: -o-linear-gradient(top, @value);
+	background: -webkit-linear-gradient(top, @value);
+}
